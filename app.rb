@@ -1,10 +1,11 @@
 require 'sinatra'
+require 'json'
 
 get '/' do
   "Hello World"
 end
 
-post '/supportbee' do
+post '/' do
  json = JSON.parse(request.body.read.to_s)
  payload = json['payload']
  print payload
