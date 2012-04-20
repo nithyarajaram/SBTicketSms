@@ -5,8 +5,7 @@ post '/' do
       
       json = JSON.parse(request.body.read.to_s)
       payload = json['payload']
-      puts payload.inspect
-      body ''
+      puts "#{payload.inspect}"
       
 end
 
