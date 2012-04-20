@@ -2,8 +2,9 @@ require 'sinatra'
 require 'json'
 
 post '/' do
- profile = JSON.parse(params[:payload])
- "#{profile.inspect}"
+      json = JSON.parse(request.body.read.to_s)
+      payload = json['payload']
+      "I got some jason #{payload.inspect}"
 end
 
 get '/' do
