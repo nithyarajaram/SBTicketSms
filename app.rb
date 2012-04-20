@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'json'
 
-post '/' do
+post '/profile' do
       json = JSON.parse(request.body.read.to_s)
       payload = json['payload']
       puts payload.inspect
