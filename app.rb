@@ -8,5 +8,6 @@ end
 
 get '/' do
   "Hello World"
+  "#{profile}"
 end
 
