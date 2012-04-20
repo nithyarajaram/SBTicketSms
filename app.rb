@@ -3,7 +3,7 @@ require 'json'
 
 post '/' do
  profile = JSON.parse(request.body.read.to_s)
- puts profile
+ puts "profile"
 end
 
 get '/' do
