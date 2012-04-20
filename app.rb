@@ -2,13 +2,15 @@ require 'sinatra'
 require 'json'
 
 post '/' do
-      @profile = JSON.parse(request.body.read.to_s)
+      json = JSON.parse(request.body.read.to_s)
+      payload = json['payload']
+      puts payload
       
 end
 
 
 get '/' do
-  puts @profile
+  "test"
 end
 
 
