@@ -2,14 +2,12 @@ require 'sinatra'
 require 'json'
 
 get '/' do
-  "Hello World"
+  print @payload
 end
 
 post '/' do
  json = JSON.parse(request.body.read.to_s)
- payload = json['payload']
- print payload
-
+ @payload = json['payload']
 end
 
 
