@@ -7,6 +7,6 @@ post '/' do
 end
 
 get '/' do
-  print "Hello World"
+  "Hello World"
 end
 
