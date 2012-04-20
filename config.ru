@@ -1,4 +1,4 @@
-require "myapp"
+require "app"
 run Sinatra::Application
 
 
