@@ -11,7 +11,7 @@ post '/' do
       if payload['action_type'] == 'ticket_created'
          url = URI("http://bulksms.vsms.net:5567/eapi/submission/send_sms/2/2.0")
          msg = URI::encode("[#{payload['company']['name']}:New Ticket] #{payload['ticket']['subject']}")
-         params = {'username' => 'supporee', 'password' => 'supbee', 'message' => msg, 'msisdn' => '+841268057258'}
+         params = {'username' => ENV["BULKSMS_USERNAME"], 'password' => ENV["BULKSMS_USERNAME"], 'message' => msg, 'msisdn' => ENV["BULKSMS_RECIPIENT"]}
          page = Net::HTTP.post_form(url,params)
          puts page.body
       end
