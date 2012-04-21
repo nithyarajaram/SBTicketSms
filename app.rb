@@ -9,7 +9,7 @@ post '/' do
       
       json = JSON.parse(request.body.read.to_s)
       payload = json['payload']
-      puts "#{payload.inspect}"
+      puts payload.inspect
             
 #url = URI("http://bulksms.vsms.net:5567/eapi/submission/send_sms/2/2.0")
 #msg = URI::encode("This is a new ticket")
