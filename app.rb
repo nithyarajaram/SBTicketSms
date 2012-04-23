@@ -17,7 +17,7 @@ post '/' do
       end
          
       url = URI("http://bulksms.vsms.net:5567/eapi/submission/send_sms/2/2.0")
-      params = {'username' => ENV["BULKSMS_USERNAME"], 'password' => 'ENV["BULKSMS_PASSWORD"]', 'message' => msg, 'msisdn' => ENV["BULKSMS_RECIPIENT1"]}
+      params = {'username' => ENV["BULKSMS_USERNAME"], 'password' => ENV["BULKSMS_PASSWORD"], 'message' => msg, 'msisdn' => ENV["BULKSMS_RECIPIENT1"]}
       page = Net::HTTP.post_form(url,params)
       puts page.body
 end
