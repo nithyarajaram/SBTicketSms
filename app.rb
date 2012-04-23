@@ -3,6 +3,7 @@ require 'json'
 require 'rubygems'
 require 'net/http'
 require 'uri'
+require 'cgi'
 
 post '/' do
       json = JSON.parse(request.body.read.to_s)
