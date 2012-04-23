@@ -11,10 +11,9 @@ post '/' do
       puts payload.inspect
       
       if payload['action_type'] == 'ticket_created'
-        #msg = "[#{payload['company']['name']}: New Ticket] #{payload['ticket']['subject']}"
-        msg = CGI::escape("[") + "#{payload['company']['name']}: Reply" + CGI::escape("]") + "#{payload['ticket']['subject']}"
+        msg = "(#{payload['company']['name']}: New Ticket) #{payload['ticket']['subject']}"
       elsif  payload['action_type'] == 'incoming_reply_created'
-        msg = "[#{payload['company']['name']}: Reply] #{payload['ticket']['subject']}"
+        msg = "(#{payload['company']['name']}: Reply) #{payload['ticket']['subject']}"
       end
          
       url = URI("http://bulksms.vsms.net:5567/eapi/submission/send_sms/2/2.0")
