@@ -14,8 +14,8 @@ post '/' do
          #msg = CGI::escape("[#{payload['company']['name']}:] #{payload['ticket']['subject']}")
          msg = CGI::escape("There is a new ticket")
          puts msg
-         #params = {'username' => ENV["BULKSMS_USERNAME"], 'password' => ENV["BULKSMS_PASSWORD"], 'message' => msg, 'msisdn' => ENV["BULKSMS_RECIPIENT1"]}
-         #page = Net::HTTP.post_form(url,params)
-         #puts page.body
+         params = {'username' => ENV["BULKSMS_USERNAME"], 'password' => ENV["BULKSMS_PASSWORD"], 'message' => msg, 'msisdn' => ENV["BULKSMS_RECIPIENT1"]}
+         page = Net::HTTP.post_form(url,params)
+         puts page.body
       end
 end
