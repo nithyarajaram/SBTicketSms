@@ -15,6 +15,6 @@ post '/' do
          puts msg
          #params = {'username' => ENV["BULKSMS_USERNAME"], 'password' => ENV["BULKSMS_PASSWORD"], 'message' => msg, 'msisdn' => ENV["BULKSMS_RECIPIENT1"]}
          #page = Net::HTTP.post_form(url,params)
-         puts page.body
+         #puts page.body
       end
 end
