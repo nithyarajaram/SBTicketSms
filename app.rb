@@ -11,7 +11,8 @@ post '/' do
       puts payload.inspect
       
       if payload['action_type'] == 'ticket_created'
-        msg = "[#{payload['company']['name']}: New Ticket] #{payload['ticket']['subject']}"
+        #msg = "[#{payload['company']['name']}: New Ticket] #{payload['ticket']['subject']}"
+        msg = CGI::escape("[") + "#{payload['company']['name']}: Reply" + CGI::escape("]") + "#{payload['ticket']['subject']}"
       elsif  payload['action_type'] == 'incoming_reply_created'
         msg = "[#{payload['company']['name']}: Reply] #{payload['ticket']['subject']}"
       end
@@ -21,3 +22,5 @@ post '/' do
       page = Net::HTTP.post_form(url,params)
       puts page.body
 end
+
+
