@@ -9,11 +9,15 @@ post '/' do
       json = JSON.parse(request.body.read.to_s)
       payload = json['payload']
       puts payload.inspect
-      
+      company_name = payload['company']['name']
+      ticket_subject = payload['ticket']['subject']
+     
       if payload['action_type'] == 'ticket_created'
-        msg = "(#{payload['company']['name']}: New Ticket) #{payload['ticket']['subject']}"
+        msg = "(#{company_name}: New Ticket) #{ticket_subject}"
+        # msg = "(#{payload['company']['name']}: New Ticket) #{payload['ticket']['subject']}"
       elsif  payload['action_type'] == 'incoming_reply_created'
-        msg = "(#{payload['company']['name']}: Reply) #{payload['ticket']['subject']}"
+        msg = "(#{company_name}: Reply) #{ticket_subject}"
+       # msg = "(#{payload['company']['name']}: Reply) #{payload['ticket']['subject']}"
       end
          
       url = URI("http://bulksms.vsms.net:5567/eapi/submission/send_sms/2/2.0")
