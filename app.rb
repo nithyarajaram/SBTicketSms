@@ -14,10 +14,8 @@ post '/' do
      
       if payload['action_type'] == 'ticket_created'
         msg = "(#{company_name}: New Ticket) #{ticket_subject}"
-        # msg = "(#{payload['company']['name']}: New Ticket) #{payload['ticket']['subject']}"
       elsif  payload['action_type'] == 'incoming_reply_created'
         msg = "(#{company_name}: Reply) #{ticket_subject}"
-       # msg = "(#{payload['company']['name']}: Reply) #{payload['ticket']['subject']}"
       end
          
       url = URI("http://bulksms.vsms.net:5567/eapi/submission/send_sms/2/2.0")
