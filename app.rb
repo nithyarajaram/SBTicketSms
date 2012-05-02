@@ -12,9 +12,9 @@ post '/' do
       company_name = payload['company']['name']
       ticket_subject = payload['ticket']['subject']
      
-      if payload['action_type'] == 'ticket_created'
+      if payload['action_type'] == 'ticket.created'
         msg = "(#{company_name}: New Ticket) #{ticket_subject}"
-      elsif  payload['action_type'] == 'incoming_reply_created'
+      elsif  payload['action_type'] == 'customer.reply.created'
         msg = "(#{company_name}: Reply) #{ticket_subject}"
       end
          
